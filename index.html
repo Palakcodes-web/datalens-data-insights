@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataLens | Mini Data Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">Data<span>Lens</span></a>
+    <span class="tagline">Your data, made clearer.</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">MINI DATA ANALYZER</p>
+      <h1>Turn raw data into <span>insights.</span></h1>
+      <p>Upload a CSV file, explore its statistics, and visualize your data in seconds.</p>
+      <label class="upload-button" for="csvFile">↑ Upload CSV file</label>
+      <input id="csvFile" type="file" accept=".csv,text/csv">
+      <button id="sampleBtn" class="secondary-button">Try sample dataset</button>
+      <p id="fileName" class="file-name">No file selected yet</p>
+      <p id="errorMessage" class="error" role="alert"></p>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card"><p>Rows</p><h2 id="rowCount">—</h2></article>
+      <article class="stat-card"><p>Columns</p><h2 id="columnCount">—</h2></article>
+      <article class="stat-card"><p>Numeric columns</p><h2 id="numericCount">—</h2></article>
+      <article class="stat-card"><p>Missing cells</p><h2 id="missingCount">—</h2></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">EXPLORE</p><h2>Dataset preview</h2></div>
+        <span id="previewLabel" class="muted">First 10 rows</span>
+      </div>
+      <div class="table-wrap">
+        <table id="dataTable">
+          <tbody><tr><td>Upload a CSV or try the sample dataset to begin.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">VISUALIZE</p><h2>Explore a column</h2></div>
+        <select id="columnSelect" aria-label="Choose a numeric column" disabled>
+          <option value="">No numeric columns</option>
+        </select>
+      </div>
+      <div class="chart-wrap"><canvas id="dataChart"></canvas></div>
+      <div id="summary" class="summary">Your column statistics will appear here.</div>
+    </section>
+
+    <footer>DataLens · A beginner-friendly data analytics project</footer>
+  </main>
+</body>
+</html>
